@@ -1,8 +1,10 @@
 from library import Library
 from book import Book
 from utils import start_menu
+from data import save_books, load_books
 
 library = Library()
+library.books = load_books()
 
 while True:
     start_menu()
@@ -13,6 +15,7 @@ while True:
         title = input("Title: ")
         author = input("Author: ")
         library.add_book(Book(book_id, title, author))
+        save_books(library.books)
 
     elif choice == "2":
         library.show_books()
@@ -20,10 +23,12 @@ while True:
     elif choice == "3":
         book_id = input("Book ID: ")
         library.issue_book(book_id)
+        save_books(library.books)
 
     elif choice == "4":
         book_id = input("Book ID: ")
         library.return_book(book_id)
+        save_books(library.books)
 
     elif choice == "5":
         print("Thank you!")
