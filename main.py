@@ -1,11 +1,11 @@
 from library import Library
 from book import Book
-from utils import menu
+from utils import start_menu
 
 library = Library()
 
 while True:
-    menu()
+    start_menu()
     choice = input("Enter choice: ")
 
     if choice == "1":
